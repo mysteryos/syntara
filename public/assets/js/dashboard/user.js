@@ -77,11 +77,12 @@ $(function()
         $('#confirm-modal').modal('hide');
     }).on('click', '.activate-user', function()
     {
-        var userId = $(this).parent().parent().find('input[type="checkbox"]').data('user-id');
+        var $this = $(this);
+        var userId = $this.parent().parent().find('input[type="checkbox"]').data('user-id');
 
         $.ajax({
             "type": "PUT",
-            "url": window.location.href.toString()+'/../user/'+userId+'/activate/',
+            "url": $this.attr('href'),
             "data": {userId : userId},
             "dataType": "json"
         }).done(function(result)
@@ -92,7 +93,7 @@ $(function()
 
                 if(result.messageType == 'success')
                 {
-                    ajaxContent($(this).attr('href'), ".ajax-content", false);
+                    ajaxContent($this.attr('href'), ".ajax-content", false);
                 }
             }
         });
