@@ -1,6 +1,6 @@
 <div class="row upper-menu">
     {{ $permissions->links(); }}
-    
+
     <div style="float:right;">
         @if($currentUser->hasAccess(Config::get('syntara::permissions.deletePermission')))
         <a id="delete-item" class="btn btn-danger">{{ trans('syntara::all.delete') }}</a>
@@ -29,7 +29,7 @@
 <tbody>
     @foreach ($permissions as $permission)
     <tr>
-        @if($currentUser->hasAccess(Config::get('syntara::permissions.deletePermission'))
+        @if($currentUser->hasAccess(Config::get('syntara::permissions.deletePermission')))
         <td style="text-align: center;">
             <input type="checkbox" data-permission-id="{{ $permission->getId(); }}">
         </td>

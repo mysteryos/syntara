@@ -65,7 +65,7 @@ $(function()
         {
             $.ajax(
             {
-                "url": window.location.href.toString()+"/../user/"+$(this).data('user-id'),
+                "url": window.location.href.toString().split('?')[0]+"/../user/"+$(this).data('user-id'),
                 "type": "DELETE"
             }).done(function(result)
             {
@@ -81,7 +81,7 @@ $(function()
 
         $.ajax({
             "type": "PUT",
-            "url": window.location.href.toString()+'/../user/'+userId+'/activate/',
+            "url": window.location.href.toString().split('?')[0]+'/../user/'+userId+'/activate/',
             "data": {userId : userId},
             "dataType": "json"
         }).done(function(result)
